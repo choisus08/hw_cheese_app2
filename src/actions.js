@@ -28,7 +28,7 @@ export const createAction = async ({request}) => {
 };
 
 
-// updat action
+// update action
 export const updateAction = async ({request, params}) => {
     const id = params.id;
     const formData = await request.formData();
@@ -47,4 +47,15 @@ export const updateAction = async ({request, params}) => {
     })
 
     return redirect (`/${id}`)
-}
+};
+
+
+// delete action
+export const deleteAction = async({params}) => {
+    const id = params.id
+    await fetch(`${baseUrl}/cheese/${id}`, {
+        method: 'DELETE'
+    })
+
+    return redirect ('/')
+};
