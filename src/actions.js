@@ -1,6 +1,8 @@
 import { baseUrl } from "./base_url";
 import { redirect } from "react-router-dom";
 
+
+// create action
 export const createAction = async ({request}) => {
     // get data from the form 
     const formData = await request.formData();
@@ -23,4 +25,26 @@ export const createAction = async ({request}) => {
     })
 
     return redirect('/')
+};
+
+
+// updat action
+export const updateAction = async ({request, params}) => {
+    const id = params.id;
+    const formData = await request.formData();
+    const updatedCheese = {
+        name: formData.get('name'),
+        image: formData.get('image'),
+        countryOfOrigin: formData.get('country of origin')
+    }
+
+    await fetch(`${baseUrl}/cheese/${id}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedCheese)
+    })
+
+    return redirect (`/${id}`)
 }
