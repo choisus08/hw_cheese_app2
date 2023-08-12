@@ -1,0 +1,44 @@
+$maincolor: rgb(247, 182, 68);
+$contrastcolor: rgb(109, 55, 17);
+
+@mixin brown-text-yellow-bg {
+    color:$contrastcolor;
+    background-color: $maincolor;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    font-size: 25px;
+    @include brown-text-yellow-bg; 
+}
+
+.img {
+    width: 35vw;
+    height: auto;
+}
+
+.index-form {
+    margin: 2em 0;
+}
+
+.input, .create {
+    margin: .5em;
+    border-radius: 5px;
+    padding: .3em;
+}
+
+.create, .update, .delete {
+    border: none;
+    padding: .7em;
+    border-radius: 25px;
+}
+
+.delete {
+    margin: 1em 0;
+}
+
+.name {
+    color: saddlebrown
+}
